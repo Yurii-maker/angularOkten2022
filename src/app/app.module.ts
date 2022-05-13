@@ -4,9 +4,9 @@ import {HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { PostsComponent } from './components/posts/posts.component';
-import { PostComponent } from './components/post/post/post.component';
-import { CommentsComponent } from './components/comments/comments/comments.component';
-import { CommentComponent } from './components/comment/comment/comment.component';
+import { PostComponent } from './components/post/post.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 
 @NgModule({
