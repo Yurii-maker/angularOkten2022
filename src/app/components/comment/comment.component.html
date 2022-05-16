@@ -4,5 +4,6 @@
   title: {{comment.name}}
   email: {{comment.email}}
   body: {{comment.body}}
+  <a [routerLink]="['/comments', comment.id]" [state]="{data:comment}" >Details</a>
   <hr/>
 </div>

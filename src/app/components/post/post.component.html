@@ -1,7 +1,9 @@
-<div>ID: {{post.id}}
+<div>
+  ID: {{post.id}}
   userID: {{post.userId}}
   title: {{post.title}}
   body: {{post.body}}
+  <a [routerLink]="['/posts', post.id]" [state]="{data:post}" >Details</a>
   <hr/>
 </div>
 
