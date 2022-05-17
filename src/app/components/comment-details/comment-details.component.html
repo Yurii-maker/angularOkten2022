@@ -1,7 +1,7 @@
-<div class="details">
-  ID: {{details?.id}}
-  postID: {{details?.postId}}
-  title: {{details?.name}}
-  email: {{details?.email}}
-  body: {{details?.body}}
+<div class="details" *ngIf="details">
+  ID: {{details.id}}
+  postID: {{details.postId}}
+  title: {{details.name}}
+  email: {{details.email}}
+  body: {{details.body}}
 </div>

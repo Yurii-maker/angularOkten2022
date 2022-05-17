@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
 import {CommentsService} from "../../services/comments.service";
@@ -12,22 +12,23 @@ import {IComment} from "../../interfaces/comments.interface";
 export class CommentDetailsComponent implements OnInit {
 
   details: IComment
-  temp: any
+
 
   constructor(private activatedRoute: ActivatedRoute, private commentsService: CommentsService) {
 
   }
 
   ngOnInit(): void {
-    this.details = history.state.data
-    this.details = this.temp
-    if (!this.details) {
-      this.activatedRoute.params.subscribe(value => {
-        this.commentsService.getSingleComment(value['id']).subscribe(response => {
-          this.details = response
+    this.activatedRoute.params.subscribe(({id}) => {
+      const data = history.state.data
+      if (data) {
+        this.details = data
+      } else {
+        this.commentsService.getSingleComment(id).subscribe(value => {
+          this.details = value
         })
-      })
-    }
+      }
+    })
   }
 
 }

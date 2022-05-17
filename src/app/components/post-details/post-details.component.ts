@@ -12,22 +12,22 @@ import {PostsService} from "../../services/posts.service";
 export class PostDetailsComponent implements OnInit {
 
   details: IPost
-  temp: any
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostsService) {
 
   }
 
   ngOnInit(): void {
-    this.details = history.state.data
-    this.details = this.temp
-    if (!this.details) {
-      this.activatedRoute.params.subscribe(value => {
-        this.postService.getSinglePost(value['id']).subscribe(response => {
-          this.details = response
+    this.activatedRoute.params.subscribe(({id}) => {
+      const data = history.state.data
+      if (data) {
+        this.details = data
+      } else {
+        this.postService.getSinglePost(id).subscribe(value => {
+          this.details = value
         })
-      })
-    }
+      }
+    })
   }
 
 }
