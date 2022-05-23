@@ -7,6 +7,8 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { CommentDetailsComponent } from './components/comment-details/comment-details.component';
 import {CommentsService} from "./services/comments.service";
+import {CommentsResolver} from "./services/commentsResolvers/comments.resolver";
+import {CommentResolver} from "./services/commentsResolvers/comment.resolver";
 
 
 
@@ -22,7 +24,9 @@ import {CommentsService} from "./services/comments.service";
     HttpClientModule
   ],
   providers: [
-    CommentsService
+    CommentsService,
+    CommentsResolver,
+    CommentResolver
   ]
 })
 export class CommentsModule { }
